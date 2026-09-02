@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Elenco delle pagine per Google. Quando aggiungi una pagina, aggiungi un blocco <url>.
+     Aggiorna <lastmod> alla data dell'ultima modifica (formato AAAA-MM-GG). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.silviacampini.it/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.silviacampini.it/prestazioni.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.silviacampini.it/cv.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>

@@ -1,0 +1,252 @@
+/* =============================================================
+   Dott.ssa Silvia Campini — Foglio di stile unico
+   Organizzazione:
+     1. Design tokens (colori, spazi, tipografia)  ← cambia qui il tema
+     2. Reset di base
+     3. Layout & utility
+     4. Componenti (nav, bottoni, card, footer)
+     5. Sezioni specifiche
+     6. Responsive & accessibilità
+   ============================================================= */
+
+/* ---------- 1. DESIGN TOKENS ---------- */
+:root {
+  /* Colori */
+  --c-primary:        #1f4e5f;
+  --c-primary-light:  #2e6f83;
+  --c-bg:             #f7f5f0;
+  --c-surface:        #ffffff;
+  --c-text:           #2a2a28;
+  --c-text-muted:     #55605f;
+  --c-border:         #e3ded4;
+
+  /* Tipografia */
+  --font-serif: 'Fraunces', Georgia, serif;
+  --font-sans:  'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Scala di spaziatura (multipli coerenti) */
+  --sp-1: 0.5rem;
+  --sp-2: 1rem;
+  --sp-3: 1.5rem;
+  --sp-4: 2rem;
+  --sp-5: 3rem;
+  --sp-6: 4rem;
+
+  /* Layout */
+  --container: 960px;
+  --radius: 12px;
+  --radius-pill: 999px;
+  --shadow: 0 8px 24px rgba(31, 78, 95, 0.10);
+}
+
+/* ---------- 2. RESET ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-sans);
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--c-primary-light); }
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.2; color: var(--c-primary); }
+
+/* ---------- 3. LAYOUT & UTILITY ---------- */
+.container { max-width: var(--container); margin-inline: auto; padding-inline: var(--sp-3); }
+main { display: block; }
+
+/* Link "salta al contenuto" per accessibilità (visibile solo con Tab) */
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--c-primary); color: #fff; padding: var(--sp-1) var(--sp-2);
+  border-radius: 0 0 var(--radius) 0; z-index: 100;
+}
+.skip-link:focus { left: 0; }
+
+/* Focus visibile coerente su tutto il sito */
+:focus-visible { outline: 3px solid var(--c-primary-light); outline-offset: 2px; border-radius: 4px; }
+
+/* ---------- 4. COMPONENTI ---------- */
+
+/* -- Navigazione -- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(247, 245, 240, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--c-border);
+}
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.nav__brand {
+  font-family: var(--font-serif); font-weight: 600; font-size: 1.05rem;
+  color: var(--c-primary); text-decoration: none; white-space: nowrap;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.nav__logo { height: 28px; width: auto; display: block; }
+.nav__links { display: flex; align-items: center; gap: var(--sp-3); list-style: none; }
+.nav__links a {
+  color: var(--c-text); text-decoration: none; font-size: 0.95rem; font-weight: 500;
+}
+.nav__links a:hover { color: var(--c-primary-light); }
+.nav__links a[aria-current="page"] { color: var(--c-primary); border-bottom: 2px solid var(--c-primary); }
+
+/* Bottone hamburger (nascosto su desktop) */
+.nav__toggle {
+  display: none; background: none; border: 0; cursor: pointer;
+  font-size: 1.5rem; color: var(--c-primary); padding: var(--sp-1);
+}
+
+/* -- Bottone principale -- */
+.btn {
+  display: inline-block; background: var(--c-primary); color: #fff !important;
+  text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  padding: 0.85rem 1.6rem; border-radius: var(--radius-pill);
+  transition: background 0.2s, transform 0.1s;
+}
+.btn:hover { background: var(--c-primary-light); }
+.btn:active { transform: translateY(1px); }
+.btn--sm { padding: 0.55rem 1.1rem; font-size: 0.9rem; }
+
+/* -- Card -- */
+.card {
+  background: var(--c-surface); border: 1px solid var(--c-border);
+  border-radius: var(--radius); padding: var(--sp-3);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.card h3 { font-size: 1.05rem; margin-bottom: var(--sp-1); }
+.card p { font-size: 0.95rem; color: var(--c-text-muted); }
+
+/* -- Footer -- */
+.site-footer { background: var(--c-primary); color: #dfeaee; padding: var(--sp-5) 0; margin-top: var(--sp-6); }
+.site-footer a { color: #cfe3e9; }
+.site-footer .footer__grid { display: grid; gap: var(--sp-1); font-size: 0.9rem; }
+.site-footer .footer__legal { margin-top: var(--sp-2); font-size: 0.8rem; color: #a9c6cf; }
+
+/* ---------- 5. SEZIONI ---------- */
+
+/* -- Hero -- */
+.hero { padding: var(--sp-6) 0 var(--sp-5); }
+.hero__grid { display: grid; grid-template-columns: 220px 1fr; gap: var(--sp-5); align-items: center; }
+.hero__photo {
+  width: 220px; aspect-ratio: 5 / 6; object-fit: cover; object-position: center 18%;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(31, 78, 95, 0.18);
+}
+/* Segnaposto foto (finché non aggiungi foto.jpg) */
+.hero__photo--placeholder {
+  display: grid; place-items: center; text-align: center;
+  background: linear-gradient(135deg, var(--c-primary), var(--c-primary-light));
+  color: #fff; font-family: var(--font-serif); font-size: 0.95rem;
+}
+.hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: var(--sp-1); }
+.hero__role { font-size: 1.15rem; color: var(--c-primary-light); font-weight: 500; margin-bottom: var(--sp-3); }
+
+/* -- Monogramma nell'hero (immagine verticale, sfondo trasparente) -- */
+.hero__logo { height: 260px; width: auto; justify-self: center; }
+
+/* -- Cartina del comprensorio (piccola, accanto alla mappa) -- */
+.campus-map { margin-top: var(--sp-3); max-width: 340px; }
+.campus-map img { width: 100%; border: 1px solid var(--c-border); border-radius: var(--radius); }
+/* -- Sezioni generiche -- */
+.section { padding: var(--sp-5) 0; border-top: 1px solid var(--c-border); }
+.section > .container > h2 { font-size: 1.75rem; margin-bottom: var(--sp-3); }
+.prose p { margin-bottom: var(--sp-2); max-width: 68ch; }
+.prose p:last-child { margin-bottom: 0; }
+
+/* -- Griglia card -- */
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--sp-2); }
+
+/* -- Studio (indirizzo + mappa) -- */
+.studio { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); align-items: start; }
+.studio__address strong { color: var(--c-primary); }
+.studio__map { width: 100%; height: 280px; border: 0; border-radius: var(--radius); }
+
+/* -- Timeline (CV) -- */
+.timeline { list-style: none; border-left: 2px solid var(--c-border); padding-left: var(--sp-3); }
+.timeline li { position: relative; padding-bottom: var(--sp-3); }
+.timeline li::before {
+  content: ""; position: absolute; left: calc(-1 * var(--sp-3) - 6px); top: 6px;
+  width: 10px; height: 10px; border-radius: 50%; background: var(--c-primary);
+}
+.timeline .year { font-weight: 600; color: var(--c-primary); font-size: 0.9rem; }
+.timeline h3 { font-size: 1.05rem; margin: 2px 0; }
+.timeline p { color: var(--c-text-muted); font-size: 0.95rem; }
+
+/* -- Titoli e liste del curriculum -- */
+.cv-heading { font-size: 1.3rem; margin: var(--sp-5) 0 var(--sp-2); }
+.cv-heading:first-of-type { margin-top: var(--sp-4); }
+.cv-list { list-style: none; display: grid; gap: var(--sp-2); }
+.cv-list li {
+  position: relative; padding-left: var(--sp-3);
+  color: var(--c-text); max-width: 72ch;
+}
+.cv-list li::before { content: "—"; position: absolute; left: 0; color: var(--c-primary-light); }
+
+/* -- Lista contatti -- */
+.contact-list { list-style: none; display: grid; gap: var(--sp-1); font-size: 1.05rem; }
+.contact-list a { text-decoration: none; }
+
+/* -- Banner cookie -- */
+.cookie-banner {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+  background: #fff; border-top: 1px solid var(--c-border);
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.08);
+}
+.cookie-banner__inner {
+  max-width: var(--container); margin-inline: auto; padding: var(--sp-2) var(--sp-3);
+  display: flex; align-items: center; gap: var(--sp-3); flex-wrap: wrap;
+}
+.cookie-banner__text { flex: 1 1 320px; margin: 0; font-size: 0.9rem; color: var(--c-text); }
+.cookie-banner__actions { display: flex; gap: var(--sp-1); flex: 0 0 auto; }
+/* "Rifiuta" con la stessa evidenza di "Accetta" (requisito Garante): outline invece di pieno */
+.cookie-banner__actions [data-cc="reject"] { background: #fff; color: var(--c-primary) !important; border: 1px solid var(--c-primary); }
+.cookie-banner__actions [data-cc="reject"]:hover { background: var(--c-bg); }
+
+/* -- Segnaposto della mappa (prima del consenso) -- */
+.map-embed { overflow: hidden; }
+.map-embed__placeholder {
+  height: 100%; min-height: 280px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: var(--sp-2); text-align: center;
+  padding: var(--sp-3); background: #eef1ee; border: 1px dashed var(--c-border); border-radius: var(--radius);
+}
+.map-embed__placeholder p { margin: 0; font-size: 0.9rem; color: var(--c-text-muted); max-width: 32ch; }
+
+/* -- Tabelle nelle pagine legali -- */
+.cookie-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin-top: var(--sp-1); }
+.cookie-table th, .cookie-table td { border: 1px solid var(--c-border); padding: var(--sp-1) var(--sp-2); text-align: left; vertical-align: top; }
+.cookie-table th { background: #eef1ee; color: var(--c-primary); font-weight: 600; }
+
+/* -- Link legali nel footer -- */
+.footer__links { margin-top: var(--sp-2); display: flex; gap: var(--sp-2); flex-wrap: wrap; font-size: 0.85rem; }
+.footer__links a { color: #cfe3e9; }
+
+/* ---------- 6. RESPONSIVE & ACCESSIBILITÀ ---------- */
+@media (max-width: 720px) {
+  .nav__toggle { display: block; }
+  .nav__links {
+    position: absolute; top: 64px; left: 0; right: 0;
+    flex-direction: column; align-items: flex-start; gap: 0;
+    background: var(--c-bg); border-bottom: 1px solid var(--c-border);
+    padding: var(--sp-2) var(--sp-3);
+    /* nascosto di default; mostrato quando <nav> ha data-open="true" (gestito da main.js) */
+    display: none;
+  }
+  .nav[data-open="true"] .nav__links { display: flex; }
+  .nav__links li { width: 100%; }
+  .nav__links a { display: block; padding: var(--sp-1) 0; width: 100%; }
+
+  .hero__grid { grid-template-columns: 1fr; text-align: center; gap: var(--sp-3); }
+  .hero__photo { margin-inline: auto; }
+  .studio { grid-template-columns: 1fr; }
+}
+
+/* Rispetta chi ha disattivato le animazioni */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
