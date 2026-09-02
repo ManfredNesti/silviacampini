@@ -240,6 +240,9 @@ main { display: block; }
   .nav[data-open="true"] .nav__links { display: flex; }
   .nav__links li { width: 100%; }
   .nav__links a { display: block; padding: var(--sp-1) 0; width: 100%; }
+  /* Il pulsante "Prenota" nel menu mobile: testo centrato, padding pieno, non appiccicato al bordo */
+  .nav__links a.btn { text-align: center; padding: 0.8rem 1.1rem; margin-top: var(--sp-1); }
+  .nav__links a[aria-current="page"] { border-bottom: 0; font-weight: 600; }
 
   .hero__grid { grid-template-columns: 1fr; text-align: center; gap: var(--sp-3); }
   .hero__photo { margin-inline: auto; }
