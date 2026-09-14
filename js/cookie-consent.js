@@ -48,7 +48,7 @@
         '<p class="cookie-banner__text">' +
           'Questo sito usa solo cookie tecnici necessari. Per mostrare la <strong>mappa interattiva</strong> ' +
           'usiamo Google Maps, che imposta cookie di terze parti: vengono attivati solo con il tuo consenso. ' +
-          'Leggi la <a href="cookie-policy.html">Cookie Policy</a> e la <a href="privacy.html">Privacy Policy</a>.' +
+          'Leggi la <a href="cookie-policy">Cookie Policy</a> e la <a href="privacy">Privacy Policy</a>.' +
         '</p>' +
         '<div class="cookie-banner__actions">' +
           '<button type="button" class="btn btn--sm" data-cc="reject">Rifiuta</button>' +
