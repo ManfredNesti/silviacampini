@@ -4,17 +4,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.silviacampini.it/</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.silviacampini.it/prestazioni</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-29</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.silviacampini.it/cv</loc>
-    <lastmod>2026-09-01</lastmod>
+    <lastmod>2026-09-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.silviacampini.it/domande-frequenti</loc>
+    <lastmod>2026-09-29</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.silviacampini.it/patologie</loc>
+    <lastmod>2026-09-29</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

@@ -80,6 +80,7 @@ main { display: block; }
 }
 .nav {
   display: flex; align-items: center; justify-content: space-between;
+  gap: var(--sp-3);          /* nome e link non si toccano mai */
   height: 64px;
 }
 .nav__brand {
@@ -88,12 +89,26 @@ main { display: block; }
   display: inline-flex; align-items: center; gap: 10px;
 }
 .nav__logo { height: 28px; width: auto; display: block; }
-.nav__links { display: flex; align-items: center; gap: var(--sp-3); list-style: none; }
+.nav__links { display: flex; align-items: center; gap: 1.25rem; list-style: none; flex-wrap: nowrap; }
 .nav__links a {
   color: var(--c-text); text-decoration: none; font-size: 0.95rem; font-weight: 500;
+  white-space: nowrap;       /* mai un'etichetta spezzata su due righe */
 }
 .nav__links a:hover { color: var(--c-primary-light); }
 .nav__links a[aria-current="page"] { color: var(--c-primary); border-bottom: 2px solid var(--c-primary); }
+
+/* Numero in barra: sta in fondo alla lista, appena prima di "Prenota",
+   così le due vie di contatto stanno vicine. */
+.nav__phone {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.95rem; font-weight: 600; white-space: nowrap;
+  color: var(--c-primary) !important; text-decoration: none;
+}
+.nav__phone:hover { color: var(--c-primary-light) !important; }
+
+/* Cornetta compatta accanto all'hamburger: compare solo quando il menu
+   (e quindi il numero per esteso) è chiuso. */
+.nav__call { display: none; color: var(--c-primary); margin-left: auto; padding: var(--sp-1); }
 
 /* Bottone hamburger (nascosto su desktop) */
 .nav__toggle {
@@ -146,16 +161,39 @@ main { display: block; }
 }
 .hero h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin-bottom: var(--sp-1); }
 .hero__role { font-size: 1.15rem; color: var(--c-primary-light); font-weight: 500; margin-bottom: var(--sp-3); }
+/* Doppia chiamata all'azione: pulsante + numero in chiaro.
+   Stessa coppia nell'hero e in fondo a ogni pagina. */
+.cta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); }
+.cta--end { margin-top: var(--sp-5); }
+.cta__phone {
+  display: inline-flex; align-items: center; gap: 8px;
+  /* Gemella del .btn: stesso passo e stesso raggio, ma contorno invece di pieno,
+     così le due azioni hanno peso visivo diverso. Il padding sottrae il bordo
+     per pareggiare l'altezza dei due tasti. */
+  padding: calc(0.85rem - 2px) calc(1.6rem - 2px);
+  border: 2px solid var(--c-primary); border-radius: var(--radius-pill);
+  background: transparent;
+  /* Sans, non il serif del resto: le cifre del Fraunces sono decorative
+     e un numero da comporre deve leggersi al primo colpo. */
+  font-family: var(--font-sans); font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 0.01em; font-variant-numeric: tabular-nums;
+  color: var(--c-primary); text-decoration: none;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+}
+.cta__phone:hover { background: var(--c-primary); color: #fff; }
+.cta__phone:active { transform: translateY(1px); }
 
 /* -- Monogramma nell'hero (immagine verticale, sfondo trasparente) -- */
 .hero__logo { height: 260px; width: auto; justify-self: center; }
 
 /* -- Cartina del comprensorio (piccola, accanto alla mappa) -- */
-.campus-map { margin-top: var(--sp-3); max-width: 340px; }
+.campus-map { margin-top: var(--sp-4); max-width: 620px; }
 .campus-map img { width: 100%; border: 1px solid var(--c-border); border-radius: var(--radius); }
 /* -- Sezioni generiche -- */
 .section { padding: var(--sp-5) 0; border-top: 1px solid var(--c-border); }
-.section > .container > h2 { font-size: 1.75rem; margin-bottom: var(--sp-3); }
+.section > .container > h2:not(.cv-heading) { font-size: 1.75rem; margin-bottom: var(--sp-3); }
+/* Titolo delle pagine interne (h1 fuori dalla hero) */
+.page-title { font-size: 2rem; margin-bottom: var(--sp-3); }
 .prose p { margin-bottom: var(--sp-2); max-width: 68ch; }
 .prose p:last-child { margin-bottom: 0; }
 
@@ -163,9 +201,11 @@ main { display: block; }
 .grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--sp-2); }
 
 /* -- Studio (indirizzo + mappa) -- */
-.studio { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); align-items: start; }
+/* La mappa si allunga fino all'altezza della colonna di testo, così le due
+   metà finiscono pari invece di lasciare un vuoto sotto la mappa. */
+.studio { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); align-items: stretch; }
 .studio__address strong { color: var(--c-primary); }
-.studio__map { width: 100%; height: 280px; border: 0; border-radius: var(--radius); }
+.studio__map { width: 100%; height: 100%; min-height: 380px; border: 0; border-radius: var(--radius); }
 
 /* -- Timeline (CV) -- */
 .timeline { list-style: none; border-left: 2px solid var(--c-border); padding-left: var(--sp-3); }
@@ -187,6 +227,58 @@ main { display: block; }
   color: var(--c-text); max-width: 72ch;
 }
 .cv-list li::before { content: "—"; position: absolute; left: 0; color: var(--c-primary-light); }
+
+/* -- Prezzo dentro le card delle prestazioni -- */
+.card__price {
+  margin-top: var(--sp-2); font-weight: 600; font-size: 0.95rem;
+  color: var(--c-primary) !important;
+  display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-2);
+}
+/* Card-prestazione cliccabile: apre la prenotazione come il pulsante "Prenota" */
+.card--book { display: block; text-decoration: none; color: inherit; }
+.card--book:hover h3 { color: var(--c-primary-light); }
+.card__book { font-weight: 500; font-size: 0.85rem; color: var(--c-primary-light); white-space: nowrap; }
+.card--book:hover .card__book { text-decoration: underline; }
+
+/* -- Aree di "Patologie trattate": titolo a sinistra, contenuto a destra.
+      Tiene corte le righe e dà un ritmo, invece di un muro di paragrafi. -- */
+.area {
+  display: grid; grid-template-columns: 200px 1fr; gap: var(--sp-4);
+  padding: var(--sp-4) 0; border-top: 1px solid var(--c-border);
+}
+.area:first-of-type { border-top: 0; padding-top: var(--sp-2); }
+.area > h2 { font-size: 1.3rem; margin: 0; }
+.area__body { max-width: 58ch; }
+.area__lead { color: var(--c-text-muted); margin-bottom: var(--sp-3); }
+.area dl { display: grid; }
+.area dt {
+  font-weight: 600; font-size: 0.78rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--c-primary-light);
+  margin-top: var(--sp-3);
+}
+.area dt:first-child { margin-top: 0; }
+.area dd { margin-left: 0; margin-top: 2px; }
+
+/* -- Nota sobria e avvertenza di fine pagina -- */
+.disclaimer {
+  margin-top: var(--sp-5); padding-top: var(--sp-2);
+  border-top: 1px solid var(--c-border);
+  font-size: 0.85rem; color: var(--c-text-muted); max-width: 68ch;
+}
+
+/* -- Domande frequenti -- */
+.faq { display: grid; gap: var(--sp-1); max-width: 72ch; }
+.faq details {
+  background: var(--c-surface); border: 1px solid var(--c-border);
+  border-radius: var(--radius); padding: var(--sp-2) var(--sp-3);
+}
+.faq summary {
+  font-family: var(--font-serif); font-weight: 600; font-size: 1.05rem;
+  color: var(--c-primary); cursor: pointer;
+}
+.faq details[open] summary { margin-bottom: var(--sp-2); }
+.faq p { font-size: 0.95rem; margin-bottom: var(--sp-1); }
+.faq p:last-child { margin-bottom: 0; }
 
 /* -- Lista contatti -- */
 .contact-list { list-style: none; display: grid; gap: var(--sp-1); font-size: 1.05rem; }
@@ -211,7 +303,7 @@ main { display: block; }
 /* -- Segnaposto della mappa (prima del consenso) -- */
 .map-embed { overflow: hidden; }
 .map-embed__placeholder {
-  height: 100%; min-height: 280px; display: flex; flex-direction: column;
+  height: 100%; min-height: 380px; display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: var(--sp-2); text-align: center;
   padding: var(--sp-3); background: #eef1ee; border: 1px dashed var(--c-border); border-radius: var(--radius);
 }
@@ -227,8 +319,11 @@ main { display: block; }
 .footer__links a { color: #cfe3e9; }
 
 /* ---------- 6. RESPONSIVE & ACCESSIBILITÀ ---------- */
-@media (max-width: 720px) {
+/* Menu a tendina: soglia più alta del resto perché la barra porta anche
+   il numero di telefono e in orizzontale non ci sta sotto i ~960px. */
+@media (max-width: 960px) {
   .nav__toggle { display: block; }
+  .nav__call { display: inline-flex; align-items: center; }
   .nav__links {
     position: absolute; top: 64px; left: 0; right: 0;
     flex-direction: column; align-items: flex-start; gap: 0;
@@ -243,8 +338,12 @@ main { display: block; }
   /* Il pulsante "Prenota" nel menu mobile: testo centrato, padding pieno, non appiccicato al bordo */
   .nav__links a.btn { text-align: center; padding: 0.8rem 1.1rem; margin-top: var(--sp-1); }
   .nav__links a[aria-current="page"] { border-bottom: 0; font-weight: 600; }
+}
 
+@media (max-width: 720px) {
   .hero__grid { grid-template-columns: 1fr; text-align: center; gap: var(--sp-3); }
+  .hero .cta { justify-content: center; }
+  .area { grid-template-columns: 1fr; gap: var(--sp-2); }
   .hero__photo { margin-inline: auto; }
   .studio { grid-template-columns: 1fr; }
 }

@@ -8,6 +8,19 @@
   <meta name="description" content="Formazione, esperienza professionale, pubblicazioni e competenze della Dott.ssa Silvia Campini, specialista in Otorinolaringoiatria." />
   <link rel="canonical" href="https://www.silviacampini.it/cv" />
 
+  <!-- Anteprima social -->
+  <meta property="og:title" content="Curriculum — Dott.ssa Silvia Campini" />
+  <meta property="og:description" content="Formazione, esperienza professionale, pubblicazioni e aree di interesse della Dott.ssa Silvia Campini, otorinolaringoiatra." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.silviacampini.it/cv" />
+  <meta property="og:locale" content="it_IT" />
+  <meta property="og:image" content="https://www.silviacampini.it/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Dott.ssa Silvia Campini — Otorinolaringoiatra a Domodossola" />
+  <meta property="og:site_name" content="Dott.ssa Silvia Campini" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
@@ -15,6 +28,60 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- ===== DATI STRUTTURATI (JSON-LD) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+    {
+      "@type": "ProfilePage",
+      "@id": "https://www.silviacampini.it/cv#pagina",
+      "url": "https://www.silviacampini.it/cv",
+      "name": "Curriculum — Dott.ssa Silvia Campini",
+      "inLanguage": "it-IT",
+      "mainEntity": { "@id": "https://www.silviacampini.it/#medico" }
+    },
+    {
+      "@type": "Physician",
+      "@id": "https://www.silviacampini.it/#medico",
+      "name": "Dott.ssa Silvia Campini",
+      "medicalSpecialty": "Otolaryngologic",
+      "url": "https://www.silviacampini.it/",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Università del Piemonte Orientale"
+      },
+      "worksFor": {
+        "@type": "MedicalOrganization",
+        "name": "ASL VCO — SOC di Otorinolaringoiatria",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Largo Caduti Lager Nazisti, 1",
+          "addressLocality": "Domodossola",
+          "addressRegion": "VB",
+          "postalCode": "28845",
+          "addressCountry": "IT"
+        }
+      },
+      "knowsAbout": [
+        "Otorinolaringoiatria pediatrica",
+        "Disturbi della voce e patologie della laringe",
+        "Patologie naso-sinusali",
+        "Disturbi dell'equilibrio e vestibologia",
+        "Disturbi uditivi e patologie dell'orecchio"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.silviacampini.it/" },
+        { "@type": "ListItem", "position": 2, "name": "Curriculum", "item": "https://www.silviacampini.it/cv" }
+      ]
+    }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -25,11 +92,14 @@
     <div class="container">
       <nav class="nav" data-nav aria-label="Navigazione principale">
         <a class="nav__brand" href="/"><img class="nav__logo" src="assets/monogramma.png" alt="" width="13" height="28" /><span>Dott.ssa Silvia Campini</span></a>
+        <a class="nav__call" href="tel:+393793283770" aria-label="Telefona al 379 328 3770"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></a>
         <button class="nav__toggle" data-nav-toggle aria-label="Apri il menu" aria-expanded="false">☰</button>
         <ul class="nav__links">
-          <li><a href="/">Home</a></li>
+          <li><a href="patologie">Patologie</a></li>
           <li><a href="prestazioni">Prestazioni</a></li>
           <li><a href="cv" aria-current="page">Curriculum</a></li>
+          <li><a href="domande-frequenti">FAQ</a></li>
+          <li><a class="nav__phone" href="tel:+393793283770"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg><span>379 328 3770</span></a></li>
           <li><a class="btn btn--sm" href="https://calendly.com/silvia-campini" target="_blank" rel="noopener">Prenota</a></li>
         </ul>
       </nav>
@@ -39,10 +109,10 @@
   <main id="main">
     <section class="section" style="border-top: 0;">
       <div class="container">
-        <h2 style="font-size: 2rem;">Curriculum</h2>
+        <h1 class="page-title">Curriculum</h1>
 
         <!-- ===== FORMAZIONE ===== -->
-        <h3 class="cv-heading">Formazione</h3>
+        <h2 class="cv-heading">Formazione</h2>
         <ul class="timeline">
           <li>
             <div class="year">2021 — 2025</div>
@@ -60,7 +130,7 @@
         </ul>
 
         <!-- ===== ESPERIENZA ===== -->
-        <h3 class="cv-heading">Esperienza professionale</h3>
+        <h2 class="cv-heading">Esperienza professionale</h2>
         <ul class="timeline">
           <li>
             <div class="year">Da ottobre 2025</div>
@@ -80,7 +150,7 @@
         </ul>
 
         <!-- ===== AREE DI INTERESSE ===== -->
-        <h3 class="cv-heading">Principali aree di interesse</h3>
+        <h2 class="cv-heading">Principali aree di interesse</h2>
         <div class="grid-cards">
           <article class="card"><h3>Otorinolaringoiatria pediatrica</h3></article>
           <article class="card"><h3>Disturbi vocali e patologie della laringe</h3></article>
@@ -90,7 +160,7 @@
         </div>
 
         <!-- ===== PUBBLICAZIONI ===== -->
-        <h3 class="cv-heading">Pubblicazioni</h3>
+        <h2 class="cv-heading">Pubblicazioni</h2>
         <div class="prose">
           <p>
             <a href="https://www.mdpi.com/2077-0383/13/24/7576" target="_blank" rel="noopener">
@@ -103,7 +173,7 @@
         </div>
 
         <!-- ===== ESPERIENZE FORMATIVE ===== -->
-        <h3 class="cv-heading">Principali esperienze formative</h3>
+        <h2 class="cv-heading">Principali esperienze formative</h2>
         <ul class="cv-list">
           <li><strong>Fonochirurgia</strong> — Master di secondo livello in fonochirurgia, Università di Ferrara (2026, in corso)</li>
           <li><strong>Citologia nasale e patologie naso-sinusali</strong> — Master in citologia nasale di primo e secondo livello (2022, 2023)</li>
@@ -113,7 +183,7 @@
         </ul>
 
         <!-- ===== LINGUE ===== -->
-        <h3 class="cv-heading">Competenze linguistiche</h3>
+        <h2 class="cv-heading">Competenze linguistiche</h2>
         <ul class="cv-list">
           <li>Italiano: madrelingua</li>
           <li>Inglese: avanzato (C1)</li>
@@ -121,9 +191,10 @@
           <li>Tedesco: intermedio (B1)</li>
         </ul>
 
-        <p style="margin-top: var(--sp-5);">
+        <div class="cta cta--end">
           <a class="btn" href="https://calendly.com/silvia-campini" target="_blank" rel="noopener">Prenota un appuntamento</a>
-        </p>
+          <a class="cta__phone" href="tel:+393793283770"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg><span>379 328 3770</span></a>
+        </div>
       </div>
     </section>
   </main>

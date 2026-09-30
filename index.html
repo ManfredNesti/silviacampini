@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Dott.ssa Silvia Campini — Otorino a Domodossola | Otorinolaringoiatra</title>
-  <meta name="description" content="Dott.ssa Silvia Campini, otorino (otorinolaringoiatra) a Domodossola: visite ORL per orecchio, naso e gola, laringoscopia, esami audiometrici e visita vestibolare per vertigini. Prenota online." />
+  <meta name="description" content="Dott.ssa Silvia Campini, otorino (otorinolaringoiatra) a Domodossola: visite otorinolaringoiatriche per orecchio, naso e gola, laringoscopia, esami audiometrici e visita vestibolare per vertigini. Prenota online." />
   <link rel="canonical" href="https://www.silviacampini.it/" />
 
   <!-- Anteprima social -->
@@ -14,6 +14,12 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.silviacampini.it/" />
   <meta property="og:locale" content="it_IT" />
+  <meta property="og:image" content="https://www.silviacampini.it/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Dott.ssa Silvia Campini — Otorinolaringoiatra a Domodossola" />
+  <meta property="og:site_name" content="Dott.ssa Silvia Campini" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
@@ -29,6 +35,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Physician",
+    "@id": "https://www.silviacampini.it/#medico",
     "name": "Dott.ssa Silvia Campini",
     "medicalSpecialty": "Otolaryngologic",
     "url": "https://www.silviacampini.it/",
@@ -49,9 +56,37 @@
       "latitude": 46.1164116,
       "longitude": 8.2877576
     },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/Tuesday", "opens": "17:30", "closes": "20:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "https://schema.org/Friday", "opens": "16:30", "closes": "19:30" }
+    ],
+    "priceRange": "50 € – 130 €",
+    "currenciesAccepted": "EUR",
     "hasMap": "https://maps.app.goo.gl/fF47L7jcWH36jLdj8",
-    "sameAs": ["https://maps.app.goo.gl/fF47L7jcWH36jLdj8"],
+    "sameAs": [
+      "https://maps.google.com/?cid=3854132987038342603"
+    ],
+    "potentialAction": {
+      "@type": "ReserveAction",
+      "name": "Prenota una visita",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://calendly.com/silvia-campini",
+        "inLanguage": "it-IT",
+        "actionPlatform": [
+          "https://schema.org/DesktopWebPlatform",
+          "https://schema.org/MobileWebPlatform"
+        ]
+      },
+      "result": { "@type": "Reservation", "name": "Appuntamento con la Dott.ssa Silvia Campini" }
+    },
     "areaServed": ["Domodossola", "Ossola", "Verbano-Cusio-Ossola", "Novara"],
+    "knowsLanguage": [
+      { "@type": "Language", "name": "Italiano", "alternateName": "it" },
+      { "@type": "Language", "name": "Inglese", "alternateName": "en" },
+      { "@type": "Language", "name": "Francese", "alternateName": "fr" },
+      { "@type": "Language", "name": "Tedesco", "alternateName": "de" }
+    ],
     "hospitalAffiliation": {
       "@type": "Hospital",
       "name": "Ospedale San Biagio",
@@ -84,11 +119,14 @@
     <div class="container">
       <nav class="nav" data-nav aria-label="Navigazione principale">
         <a class="nav__brand" href="/"><img class="nav__logo" src="assets/monogramma.png" alt="" width="13" height="28" /><span>Dott.ssa Silvia Campini</span></a>
+        <a class="nav__call" href="tel:+393793283770" aria-label="Telefona al 379 328 3770"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg></a>
         <button class="nav__toggle" data-nav-toggle aria-label="Apri il menu" aria-expanded="false">☰</button>
         <ul class="nav__links">
-          <li><a href="/" aria-current="page">Home</a></li>
+          <li><a href="patologie">Patologie</a></li>
           <li><a href="prestazioni">Prestazioni</a></li>
           <li><a href="cv">Curriculum</a></li>
+          <li><a href="domande-frequenti">FAQ</a></li>
+          <li><a class="nav__phone" href="tel:+393793283770"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg><span>379 328 3770</span></a></li>
           <li><a class="btn btn--sm" href="https://calendly.com/silvia-campini" target="_blank" rel="noopener">Prenota</a></li>
         </ul>
       </nav>
@@ -104,7 +142,10 @@
         <div>
           <h1>Dott.ssa Silvia Campini</h1>
           <p class="hero__role">Medico Chirurgo — Specialista in Otorinolaringoiatria a Domodossola</p>
-          <a class="btn" href="https://calendly.com/silvia-campini" target="_blank" rel="noopener">Prenota un appuntamento</a>
+          <div class="cta">
+            <a class="btn" href="https://calendly.com/silvia-campini" target="_blank" rel="noopener">Prenota un appuntamento</a>
+            <a class="cta__phone" href="tel:+393793283770"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg><span>379 328 3770</span></a>
+          </div>
         </div>
       </div>
     </div>
@@ -118,10 +159,11 @@
             Sono Medico Chirurgo specialista in Otorinolaringoiatria, formata presso l'Università
             del Piemonte Orientale, dove ho conseguito con il massimo dei voti sia la laurea in
             Medicina e Chirurgia sia la specializzazione in Otorinolaringoiatria. Attualmente presto
-            servizio come Dirigente Medico presso la SOC di Otorinolaringoiatria dell'ASL VCO.
+            servizio come <strong>Dirigente Medico presso la SOC di Otorinolaringoiatria
+            dell'ASL VCO</strong>.
           </p>
           <p>
-            Ho maturato un'ampia esperienza, sia negli adulti che nei bambini, nella gestione delle
+            Ho maturato un'ampia esperienza, <strong>sia negli adulti che nei bambini</strong>, nella gestione delle
             principali patologie del distretto testa-collo: disturbi della voce, malattie del naso e dei
             seni paranasali, patologie dell'orecchio e disturbi dell'equilibrio.
           </p>
@@ -139,7 +181,7 @@
       <div class="container">
         <h2>Prestazioni principali</h2>
         <div class="grid-cards">
-          <article class="card"><h3>Prima visita ORL</h3><p>Valutazione completa di orecchio, naso e gola.</p></article>
+          <article class="card"><h3>Prima visita</h3><p>Valutazione completa di orecchio, naso e gola.</p></article>
           <article class="card"><h3>Laringoscopia a fibre ottiche</h3><p>Studio endoscopico di laringe e corde vocali.</p></article>
           <article class="card"><h3>Visita vestibolare</h3><p>Per vertigini e disturbi dell'equilibrio.</p></article>
           <article class="card"><h3>Esami audiometrici</h3><p>Audiometria tonale, vocale e impedenzometria.</p></article>
@@ -158,20 +200,22 @@
               <strong>Ospedale San Biagio</strong><br>
               Largo Caduti Lager Nazisti, 1<br>
               28845 Domodossola (VB)<br>
-              Palazzina I — Poliambulatori
+              Palazzina I <strong>(ingresso dalla Palazzina H)</strong>
             </p>
-            <p><a class="btn" href="https://calendly.com/silvia-campini" target="_blank" rel="noopener">Prenota un appuntamento</a></p>
-
-            <!-- Cartina del comprensorio: la Palazzina I è evidenziata in rosso -->
-            <figure class="campus-map">
-              <img src="assets/palazzina-i.png" alt="Piantina dell'Ospedale San Biagio con la Palazzina I (Poliambulatori) evidenziata in rosso"
-                   width="2316" height="1302" loading="lazy" />
-            </figure>
+            <p>
+              <strong>Orari indicativi delle visite</strong><br>
+              Martedì 17:30 — 20:00<br>
+              Venerdì 16:30 — 19:30
+            </p>
+            <div class="cta" style="margin-top: var(--sp-3);">
+              <a class="btn" href="https://calendly.com/silvia-campini" target="_blank" rel="noopener">Prenota un appuntamento</a>
+              <a class="cta__phone" href="tel:+393793283770"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg><span>379 328 3770</span></a>
+            </div>
           </div>
 
           <!-- Mappa Google: caricata SOLO dopo il consenso ai cookie (vedi js/cookie-consent.js) -->
           <div class="studio__map map-embed" data-map-embed
-               data-map-src="https://www.google.com/maps?q=46.1164116,8.2877576&z=17&hl=it&output=embed"
+               data-map-src="https://www.google.com/maps?q=46.1164116,8.2877576&z=15&hl=it&output=embed"
                data-map-title="Mappa Ospedale San Biagio, Domodossola">
             <div class="map-embed__placeholder">
               <p>Per mostrare la mappa interattiva serve il consenso ai cookie di Google Maps.</p>
@@ -180,6 +224,13 @@
             </div>
           </div>
         </div>
+
+        <!-- Piantina del comprensorio, a tutta larghezza: è il passaggio che serve
+             davvero una volta arrivati, la Palazzina I è evidenziata in rosso. -->
+        <figure class="campus-map">
+          <img src="assets/palazzina-i.webp" alt="Piantina dell'Ospedale San Biagio con la Palazzina I (Poliambulatori) evidenziata in rosso"
+               width="1400" height="787" loading="lazy" decoding="async" />
+        </figure>
       </div>
     </section>
 
